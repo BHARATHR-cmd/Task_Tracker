@@ -24,10 +24,20 @@ export class TaskService {
     return this.http.delete<Task>(url);
   }
   updateTaskReminder(task : Task): Observable<Task>{
+    alert(task.id)
     const url =`${this.apiUrl}/${task.id}`;
     return this.http.put<Task>(url,task,httpOptions);
   }
   addTask(task:Task): Observable<Task>{
     return this.http.post<Task>(this.apiUrl,task,httpOptions);
+  }
+  updateTask(task : Task): Observable<Task>{
+    console.log(task.id)
+    
+    const url =`${this.apiUrl}/${task.id}`;
+    //const url =`${this.apiUrl}/${1}`;
+    //alert(task.day)
+    return this.http.put<Task>(url,task,httpOptions);
+    
   }
 }
