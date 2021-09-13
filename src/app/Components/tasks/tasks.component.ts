@@ -10,6 +10,7 @@ export class TasksComponent implements OnInit {
   @Output() onEditTask : EventEmitter<Task> =new EventEmitter;
 
   tasks:Task[]=[];
+  task:Task[]=[];
   constructor(private taskService : TaskService) { }
   eid:undefined|Number=0;
   etext:string="";
@@ -41,14 +42,16 @@ export class TasksComponent implements OnInit {
       this.taskService.addTask(task).subscribe((task)=> (this.tasks.push(task)));
     }
     editTask(task:Task){
-      this.eid = task.id
+      console.log("second task send",task.id);
+      this.eid = task.id;
       this.etext=task.text;
       this.eday=task.day;
       this.ereminder=task.reminder;
+      console.log("form eid and task.id equating",this.eid);
       this.onEditTask.emit(task);
     }
     ediTtask(task:Task){
-        task.id!=this.eid;
+        //task.id!=this.eid;
       // this.aftext=task.text;
       // this.afday=task.day;
       // this.afreminder = task.reminder;

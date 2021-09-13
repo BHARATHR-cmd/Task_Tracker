@@ -24,6 +24,8 @@ export class TasksItemComponent implements OnInit {
     this.onDeleteTask.emit(task);
   }
   onEdit(task:Task){
+    console.log("edit first task send",task.id);
+    
     this.onEditTask.emit(task);
   }
  

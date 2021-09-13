@@ -9,10 +9,11 @@ import {Task} from '../../Task';
 })
 export class EditTaskComponent implements OnInit {
   @Output() onEditTask: EventEmitter<Task> =new EventEmitter();
-  @Input() eid!:undefined|number;
-  @Input() etext!: string;
-  @Input() eday!:string;
-  @Input() ereminder!:boolean;
+   eid:undefined|number;
+  @Input() task:Task[]=[];
+   etext: string="";
+  eday:string="";
+  ereminder:boolean=false;
   aftext!: string;
   afday!:string;
   afreminder!:boolean;
@@ -20,8 +21,9 @@ export class EditTaskComponent implements OnInit {
  
   
     onEditSubmit(){
+      console.log("after edit",this.eid);
       const edittask={
-        
+        id:this.eid,
         text : this.etext,
         day : this.eday,
         reminder : this.ereminder
@@ -35,7 +37,7 @@ export class EditTaskComponent implements OnInit {
         return;
       }
       
-    this.onEditTask.emit(edittask);
+    //this.onEditTask.emit(edittask);
     this.etext="";
     this.eday="";
     this.ereminder=false;

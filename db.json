@@ -1,9 +1,9 @@
 {
   "tasks": [
     {
-      "text": "Meeting at School",
-      "day": "May 6th at ",
-      "reminder": true,
+      "text": "gdr",
+      "day": "May 6th at hgh",
+      "reminder": false,
       "id": 1
     },
     {
